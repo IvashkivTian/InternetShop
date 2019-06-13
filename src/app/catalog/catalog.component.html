@@ -1,0 +1,34 @@
+<div id="catalog">
+      
+   <div class="container">
+         <p>Каталог</p>
+         <hr> 
+      <div id="input_search">
+      <div class="sortProduct">
+        <span>Сортувати товар :</span>
+            <select [(ngModel)]="sortPrice" >
+              <option value="priceMax">Ціна за зростанням</option>
+              <option value="priceMin">Ціна за спаданням</option>
+              <option value="name">Сортування (А-Я)</option>
+            </select>
+      </div>
+      <div class="input-group mb-3">
+              <span><i class="fas fa-search"></i></span>
+            <input [(ngModel)]="term" id="input_catalog" type="text" placeholder="Пошук товару">
+          </div>
+      </div>
+      </div>
+  <div class="list_products">
+     <div class="img_prod" *ngFor="let p of products | filter:term | sort: sortPrice| paginate: { itemsPerPage: 6, currentPage: p }">
+      <a routerLink="/detail/{{p.id}}">
+         <img src={{p.photo}} class="img-thumbnail"></a>
+        <h5>{{p.name}}</h5>
+        <h5>Price: {{p.price}} $</h5> 
+     </div> 
+  </div>
+  
+</div>
+<div  id="pagination">
+<pagination-controls  (pageChange)="p = $event" ></pagination-controls>
+
+</div>

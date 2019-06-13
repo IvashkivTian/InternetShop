@@ -1,0 +1,65 @@
+<div class="container">
+  <span>Корзина</span>
+  <hr>
+  <div>
+      <a routerLink="/catalog" ><button class="btn btn-success">Повернутись до покупок</button></a>
+  </div>
+  <hr>
+  <div class="container">
+
+  <div  *ngFor="let prod of cart" class="prod_details">
+     <img src={{prod.photo}} class="img-thumbnail"> 
+          <h5>{{prod.name}}</h5>
+          <h5>{{prod.price}} $</h5>
+          <!-- <span>{{prod.price * prod.qty}} $</span> -->
+          
+            <input type="number" min="0" (change)="updateTotal()" [(ngModel)]="prod.qty">
+           
+          <div id="delete" class="delete_prod_cart">
+                <button 
+                (click)="delete(prod.id)" 
+                class="btn btn-light">
+                <i class="fas fa-trash-alt fa-2x">
+                </i>
+                  </button>
+          </div>
+          <hr>    
+    </div>
+
+</div>
+<div *ngIf="!cart.length>0">
+      <span>Корзина порожня. Верніться до покупок, будь ласка!</span>
+</div>
+<hr>
+<div class="container">
+      <span *ngIf ="!cart.length"></span>
+      <span *ngIf="cart.length>0">Загальна вартість:{{bill}}$</span>
+</div>
+<div id="btn_pay">
+<button class="btn btn-success" type="button" 
+      data-toggle="modal" 
+      data-target="#exampleModal" 
+      [disabled]="!cart.length>0"
+      >Оплатити</button>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Рахунок</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Ваша сумма до сплати {{bill}} $
+          </div>
+          <div class="modal-footer">
+            <button type="button" 
+            class="btn btn-secondary" 
+            data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

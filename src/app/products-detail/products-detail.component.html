@@ -1,0 +1,21 @@
+<button type="button" class="btn btn-success" (click)="goBack()">Повернутись до покупок</button>      
+<div class="container col-sm-10">
+      <div *ngIf="prod" class="prod_details">
+            <img src={{prod.photo}} class="img-thumbnail">
+            <div class="text">
+            <h5>Name: {{prod.name}}</h5>
+            <h5>Price: {{prod.price}}$</h5>
+                  <span >Lorem, ipsum dolor sit amet consectetur 
+                        adipisicing elit. Delectus assumenda repudiandae
+                         sunt ab nulla iste voluptas at magnam qui, ipsa
+                          earum maxime similique, inventore iure aut.</span>
+      <div id="button">
+      <button type="button" 
+            class="btn btn btn-outline-success" 
+            (click)="add(prod)">Додати до корзини
+      </button>
+      </div>
+      </div>
+      <hr>
+      </div>
+</div>

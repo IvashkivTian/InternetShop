@@ -1,0 +1,55 @@
+.container{
+    width:100%;
+    
+    span{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color:rgb(65, 63, 63);
+        font-size: 25px;
+        text-align: center;
+    }
+}
+
+.prod_details{
+    width: 90%;
+    height: 250px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: inherit;
+    img{
+    width: 175px;
+    height: 160px;
+    margin: 30px;
+    }
+    h5{
+       text-align: center;
+       margin: 50px;
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+       font-size: 20px;
+
+    }
+    span{
+        margin: 50px;
+    }
+    input{
+        margin-left: 150px;
+        margin-right: 50px;
+        width:40px;
+    }
+}
+.total_price{
+    p{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 20px;
+        text-align: left;
+        margin-left: 80px; 
+    }
+}
+#delete{
+    margin-left: 130px;
+}
+#btn_pay{
+    display: flex;
+    justify-content: flex-end;
+}
